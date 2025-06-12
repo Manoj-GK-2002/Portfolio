@@ -7,7 +7,7 @@
   <meta name="description" content="Manoj GK | Portfolio - DevOps, Data Science, and Full-Stack Projects">
 <meta name="keywords" content="Manoj GK, DevOps, Portfolio, Data Science, Projects, GitHub, Flask">
 <meta name="author" content="Manoj GK">
-
+ <link rel="icon" type="image/png" href="./assenst/one (2) (1).png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -258,7 +258,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
-      margin-top: 50px;
+      margin-top: 0px;
     }
     
     .skill-category {
@@ -637,6 +637,138 @@
         padding: 30px 20px;
       }
     }
+    .skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.skills-categories {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.skill-category {
+  background: rgba(26, 26, 46, 0.8);
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(0, 173, 181, 0.3);
+}
+
+.skill-category:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px -15px rgba(0, 173, 181, 0.4);
+  border-color: var(--primary);
+}
+
+.skill-category h3 {
+  color: var(--primary);
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.skill-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.skill-item {
+  background: rgba(0, 173, 181, 0.15);
+  border: 2px solid var(--primary);
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  color: var(--text);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-item i {
+  font-size: 1.4rem;
+  color: var(--primary);
+}
+
+.skill-item:hover {
+  background: var(--primary);
+  color: var(--light);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 173, 181, 0.3);
+}
+
+.skill-item:hover i {
+  color: var(--light);
+}
+
+@media (max-width: 768px) {
+  .skill-list {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .skill-item {
+    font-size: 1rem;
+    padding: 12px 15px;
+  }
+  
+  .skill-category {
+    padding: 30px;
+  }
+  
+  .skill-category h3 {
+    font-size: 1.6rem;
+  }
+}
+.skill-list {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.skill-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Keep your existing skill-item styles */
+.skill-item {
+  background: rgba(0, 173, 181, 0.15);
+  border: 2px solid var(--primary);
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  color: var(--text);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .skill-list {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .skill-column {
+    gap: 15px;
+  }
+}
   </style>
 </head>
 <body>
@@ -653,38 +785,36 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div id="particles-js"></div>
-    <div class="hero-content animate-fade">
-      <h2>Hi, I'm <span>Manoj G K</span></h2>
-      <p class="typing-text">I'm an <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
-      <p>A passionate second-year student specializing in Data Science, DevOps, and Full-Stack Development</p>
-      <a href="#projects" class="btn">View My Work</a>
+ <!-- Hero Section -->
+<section class="hero" id="home">
+  <div id="particles-js"></div>
+  <div class="hero-content animate-fade">
+    <h2>Hi, I'm <span>Manoj G K</span></h2>
+    <p class="typing-text">I'm an <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+    <p>A passionate second-year student specializing in Data Science, DevOps, and Full-Stack Development</p>
+    <a href="#projects" class="btn">View My Work</a>
+    
+    <!-- Social Links - Correct Placement -->
+    <div class="social-links">
+      <a href="https://github.com/ManojGK-2002" target="_blank" class="social-link">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/manoj-gk-3a4878264/" target="_blank" class="social-link">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+     <a href="https://www.youtube.com/@G_Global-K_Knowledge." target="_blank" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+      </a>
+      <a href="https://leetcode.com/u/Manojgk-2002/" target="_blank" class="social-link animate-fade delay-4">
+    <i class="fas fa-code"></i>
+  </a>
+       <a href="https://www.hackerrank.com/profile/manojgk0210" target="_blank" class="social-link animate-fade delay-5">
+    <i class="fab fa-hackerrank"></i>
+  </a>
     </div>
-  <head>
-  <!-- Load Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* Basic styling for visibility */
-    .social-links { display: flex; gap: 15px; }
-    .social-link { font-size: 24px; color: #333; }
-  </style>
-</head>
-
-<body>
-  <div class="social-links">
-    <a href="https://github.com/ManojGK-2002" target="_blank" class="social-link">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/manoj-gk-3a4878264/" target="_blank" class="social-link">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="https://twitter.com/manojraaj2004" target="_blank" class="social-link">
-      <i class="fab fa-twitter"></i>
-    </a>
   </div>
-</body>
-  </section>
+</section>
+<body>
+
 
   <!-- About Section -->
   <section class="about" id="about">
@@ -697,55 +827,92 @@
      
       </div>
       <div class="about-image animate-right">
-        <img src="https://via.placeholder.com/350" alt="Manoj's Profile Picture" class="profile-img">
+        <img src="./assenst/WhatsApp Image 2025-06-12 at 20.39.03_79c06bde.jpg" alt="Manoj's Profile Picture" class="profile-img">
       </div>
     </div>
   </section>
 
   <!-- Skills Section -->
   <section class="skills" id="skills">
-    <h2 class="section-title">My Skills</h2>
-    <div class="skills-container">
-      <div class="skills-categories">
-        <div class="skill-category animate-fade delay-1">
-        
-          <h3>DevOps</h3>
-          <div class="skill-list">
-               <div class="skill-item">Python</div>
-            <div class="skill-item">Docker</div>
-            <div class="skill-item">Kubernetes</div>
-            <div class="skill-item">AWS</div>
-            <div class="skill-item">Terraform</div>
-            <div class="skill-item">Ansible</div>
-            <div class="skill-item">CI/CD</div>
-            <div class="skill-item">Flask</div>
-            <div class="skill-item">MySQL</div>
-          </div>
-        </div>
-    
-        </div>
+  <h2 class="section-title">My Skills</h2>
+  <div class="skills-container">
+    <div class="skills-categories" style="margin-top: 0px";
+">
+      <div class="skill-category animate-fade delay-1">
+        <h3>DevOps & Cloud</h3>
+        <div class="skill-list">
+  <!-- Left Column -->
+  <div class="skill-column">
+    <div class="skill-item">
+      <i class="fab fa-python"></i> Python
+    </div>
+    <div class="skill-item">
+      <i class="fab fa-python"></i> Linux
+    </div>
+    <div class="skill-item">
+      <i class="fab fa-docker"></i> Docker
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-ship"></i> Kubernetes
+    </div>
+   
+  </div>
+  <div class="skill-column">
+     <div class="skill-item">
+      <i class="fab fa-aws"></i> AWS
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-server"></i> Terraform
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-robot"></i> Ansible
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-robot"></i> Jenkines
+    </div>
+  
+  </div>
+  
+  <!-- Right Column -->
+  <div class="skill-column">
+   
+    <div class="skill-item">
+      <i class="fas fa-sync-alt"></i> CI/CD
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-flask"></i> Flask
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-database"></i> MySQL
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-database"></i> Mechine Learning
+    </div>
+  </div>
+</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Projects Section -->
   <section class="projects" id="projects">
     <h2 class="section-title">My Projects</h2>
     <div class="project-grid">
       <div class="project-card animate-fade delay-1">
-        <img src="https://via.placeholder.com/600x400?text=E-Waste+App" alt="E-Waste Recycling App" class="project-img">
+        <img src="./assenst/Screenshot 2025-06-12 204443.png" alt="E-Waste Recycling App" class="project-img">
         <div class="project-content">
           <h3>E-Waste Recycling App</h3>
           <p>A comprehensive platform to manage and promote e-waste recycling with location tracking, user dashboard, and reward system. Built with Flask, MySQL, and integrated Google Maps API.</p>
           <div class="project-links">
-            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+            <a href="https://manojgk.shop/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/ManojGK-2002/manojgk-shop" class="project-link"><i class="fab fa-github"></i> Code</a>
           </div>
         </div>
       </div>
       
       <div class="project-card animate-fade delay-2">
-        <img src="https://via.placeholder.com/600x400?text=Password+Generator" alt="Password Generator" class="project-img">
+        <img src="./" alt="Password Generator" class="project-img">
         <div class="project-content">
           <h3>Secure Password Generator</h3>
           <p>A Flask web application that generates strong, secure passwords with customizable parameters. Features password strength analysis, copy-to-clipboard functionality, and secure storage.</p>
@@ -776,7 +943,7 @@
   <!-- Footer -->
   <footer>
     <p>Designed & Built by Manoj G K</p>
-    <p>&copy; 2025 All Rights Reserved</p>
+    <p>&copy; True Legend's </p>
   </footer>
 
   <!-- Back to Top Button -->
