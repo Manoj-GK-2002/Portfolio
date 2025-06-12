@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manoj's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary: #00adb5;
+      --primary-dark: #028d8f;
+      --secondary: #1a1a2e;
+      --dark: #0f2027;
+      --light: #eeeeee;
+      --accent: #2c5364;
+      --text: #e6f1ff;
+      --text-secondary: #8892b0;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    
+    /* Header Styles */
+    header {
+      background: rgba(26, 26, 46, 0.9);
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    header.scrolled {
+      padding: 15px 5%;
+      background: rgba(15, 32, 39, 0.95);
+    }
+    
+    header h1 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+    
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 5px 0;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    /* Section Styles */
+    section {
+      padding: 100px 5%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      text-align: center;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding-top: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero h2 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .hero h2 span {
+      color: var(--primary);
+    }
+    
+    .hero p {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    
+    .hero .typing-text {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 35px;
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: var(--primary);
+      transition: width 0.3s ease;
+      z-index: -1;
+    }
+    
+    .btn:hover {
+      color: var(--light);
+    }
+    
+    .btn:hover::before {
+      width: 100%;
+    }
+    
+    /* About Section */
+    .about {
+      background: var(--secondary);
+      position: relative;
+    }
+    
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .about-text {
+      flex: 1;
+    }
+    
+    .about-text p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .about-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .profile-img {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--primary);
+      box-shadow: 0 0 30px rgba(0, 173, 181, 0.3);
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    /* Skills Section */
+    .skills {
+      background: var(--dark);
+    }
+    
+    .skills-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .skills-categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .skill-category {
+      background: rgba(26, 26, 46, 0.7);
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .skill-category:hover {
+      transform: translateY(-10px);
+    }
+    
+    .skill-category h3 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.3rem;
+    }
+    
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    
+    .skill-item {
+      background: rgba(0, 173, 181, 0.1);
+      border: 1px solid var(--primary);
+      padding: 8px 15px;
+      border-radius: 80px;
+      font-size: 0.9rem;
+      color: var(--primary);
+      transition: all 0.13s ease;
+    }
+    
+    .skill-item:hover {
+      background: var(--primary);
+      color: var(--light);
+      transform: scale(1.05);
+    }
+    
+    /* Projects Section */
+    .projects {
+      background: var(--secondary);
+    }
+    
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .project-card {
+      background: rgba(17, 34, 64, 0.7);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 30px -15px rgba(0, 173, 181, 0.3);
+    }
+    
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .project-content {
+      padding: 25px;
+    }
+    
+    .project-content h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+    
+    .project-content p {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+    
+    .project-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .project-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.3s ease;
+    }
+    
+    .project-link:hover {
+      color: var(--light);
+    }
+    
+    .project-link i {
+      font-size: 1rem;
+    }
+    
+    /* Contact Section */
+    .contact {
+      background: var(--dark);
+    }
+    
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .contact-form {
+      background: rgba(26, 26, 46, 0.7);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+      position: relative;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--primary);
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      color: var(--light);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(0, 173, 181, 0.2);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background: var(--primary);
+      color: var(--light);
+      border: none;
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    
+    .submit-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    /* Social Links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 50px;
+    }
+    
+    .social-link {
+      color: var(--primary);
+      font-size: 1.8rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 173, 181, 0.1);
+      border: 1px solid rgba(0, 173, 181, 0.2);
+    }
+    
+    .social-link:hover {
+      color: var(--light);
+      background: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px -10px rgba(0, 173, 181, 0.5);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--secondary);
+      text-align: center;
+      padding: 30px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    footer p {
+      margin-bottom: 10px;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: var(--light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-5px);
+    }
+    
+    /* Animations */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    .animate-fade {
+      animation: fadeIn 1s ease forwards;
+    }
+    
+    .animate-left {
+      animation: slideInLeft 1s ease forwards;
+    }
+    
+    .animate-right {
+      animation: slideInRight 1s ease forwards;
+    }
+    
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+    
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+    
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+    
+    /* Particles Background */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .about-image {
+        margin-top: 30px;
+      }
+      
+      .profile-img {
+        width: 250px;
+        height: 250px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 5%;
+        flex-direction: column;
+      }
+      
+      nav {
+        margin-top: 15px;
+        gap: 15px;
+      }
+      
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      section {
+        padding: 80px 5%;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+      
+      .btn {
+        padding: 10px 25px;
+      }
+      
+      .social-link {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+      
+      .contact-form {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <h1>NMIT</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="resume.pdf" target="_blank" class="btn-resume">Resume</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div id="particles-js"></div>
+    <div class="hero-content animate-fade">
+      <h2>Hi, I'm <span>Manoj G K</span></h2>
+      <p class="typing-text">I'm an <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+      <p>A passionate second-year student specializing in Data Science, DevOps, and Full-Stack Development</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  <head>
+  <!-- Load Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Basic styling for visibility */
+    .social-links { display: flex; gap: 15px; }
+    .social-link { font-size: 24px; color: #333; }
+  </style>
+</head>
+
+<body>
+  <div class="social-links">
+    <a href="https://github.com/ManojGK-2002" target="_blank" class="social-link">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/manoj-gk-3a4878264/" target="_blank" class="social-link">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://twitter.com/manojraaj2004" target="_blank" class="social-link">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </div>
+</body>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <div class="about-text animate-left">
+        <p>I'm a second-year Computer Science student at Nittay Meenakshi College with a passion for solving complex problems through technology. My journey in tech began when I built my first website at 16, and since then I've been fascinated by the intersection of data, development, and infrastructure.</p>
+        <p>When I'm not coding, you can find me contributing to open-source projects, participating in hackathons, or exploring new DevOps tools. I believe in continuous learning and pushing the boundaries of what's possible with technology.</p>
+        <p>My goal is to leverage my skills in data science and cloud technologies to build scalable, efficient solutions that make a real impact.</p>
+     
+      </div>
+      <div class="about-image animate-right">
+        <img src="https://via.placeholder.com/350" alt="Manoj's Profile Picture" class="profile-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills" id="skills">
+    <h2 class="section-title">My Skills</h2>
+    <div class="skills-container">
+      <div class="skills-categories">
+        <div class="skill-category animate-fade delay-1">
+        
+          <h3>DevOps</h3>
+          <div class="skill-list">
+               <div class="skill-item">Python</div>
+            <div class="skill-item">Docker</div>
+            <div class="skill-item">Kubernetes</div>
+            <div class="skill-item">AWS</div>
+            <div class="skill-item">Terraform</div>
+            <div class="skill-item">Ansible</div>
+            <div class="skill-item">CI/CD</div>
+            <div class="skill-item">Flask</div>
+            <div class="skill-item">MySQL</div>
+          </div>
+        </div>
+    
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <h2 class="section-title">My Projects</h2>
+    <div class="project-grid">
+      <div class="project-card animate-fade delay-1">
+        <img src="https://via.placeholder.com/600x400?text=E-Waste+App" alt="E-Waste Recycling App" class="project-img">
+        <div class="project-content">
+          <h3>E-Waste Recycling App</h3>
+          <p>A comprehensive platform to manage and promote e-waste recycling with location tracking, user dashboard, and reward system. Built with Flask, MySQL, and integrated Google Maps API.</p>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card animate-fade delay-2">
+        <img src="https://via.placeholder.com/600x400?text=Password+Generator" alt="Password Generator" class="project-img">
+        <div class="project-content">
+          <h3>Secure Password Generator</h3>
+          <p>A Flask web application that generates strong, secure passwords with customizable parameters. Features password strength analysis, copy-to-clipboard functionality, and secure storage.</p>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card animate-fade delay-3">
+        <img src="https://via.placeholder.com/600x400?text=Auth+System" alt="User Auth System" class="project-img">
+        <div class="project-content">
+          <h3>User Authentication System</h3>
+          <p>A complete authentication system with registration, login, OTP verification, and password reset functionality. Implemented with Flask, JWT, and MySQL with security best practices.</p>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+
+
+  <!-- Footer -->
+  <footer>
+    <p>Designed & Built by Manoj G K</p>
+    <p>&copy; 2025 All Rights Reserved</p>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('active');
+      } else {
+        backToTop.classList.remove('active');
+      }
+    });
+    
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Typing animation
+    const typedTextSpan = document.querySelector('.typed-text');
+    const cursorSpan = document.querySelector('.cursor');
+    
+    const textArray = ['Data Scientist', 'DevOps Engineer', 'Python Developer', 'Youtuber'];
+    const typingDelay = 200;
+    const erasingDelay = 100;
+    const newTextDelay = 2000;
+    let textArrayIndex = 0;
+    let charIndex = 0;
+    
+    function type() {
+      if (charIndex < textArray[textArrayIndex].length) {
+        if(!cursorSpan.classList.contains('typing')) cursorSpan.classList.add('typing');
+        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, typingDelay);
+      } 
+      else {
+        cursorSpan.classList.remove('typing');
+        setTimeout(erase, newTextDelay);
+      }
+    }
+    
+    function erase() {
+      if (charIndex > 0) {
+        if(!cursorSpan.classList.contains('typing')) cursorSpan.classList.add('typing');
+        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+        charIndex--;
+        setTimeout(erase, erasingDelay);
+      } 
+      else {
+        cursorSpan.classList.remove('typing');
+        textArrayIndex++;
+        if(textArrayIndex>=textArray.length) textArrayIndex=0;
+        setTimeout(type, typingDelay + 1100);
+      }
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(type, newTextDelay + 250);
+    });
+    
+    // Form submission
+    function submitForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      
+      // Here you would typically send the form data to a server
+      // For demo purposes, we'll just show an alert
+      alert('Thank you for your message! I will get back to you soon.');
+      form.reset();
+    }
+    
+    // Initialize particles.js
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#00adb5"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00adb5",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 140,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+    
+    // Animation on scroll
+    const animateElements = document.querySelectorAll('.animate-fade, .animate-left, .animate-right');
+    
+    const animateOnScroll = () => {
+      animateElements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementPosition < windowHeight - 100) {
+          element.style.opacity = '1';
+          element.style.transform = 'translate(0)';
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+  </script>
+</body>
+</html>
